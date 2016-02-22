@@ -1,0 +1,24 @@
+y <- 0
+i <- 0
+MAX <- 1000000
+plot(c(0,MAX),c(0,0),ylim=c(-55,55))
+abline(h=-50,col="green")
+abline(h=50,col="green")
+p <- 0.5
+color <- "blue"
+repeat{
+  x <- rbinom(1,1,p)
+  aux <- y
+  y <- y+(2*x - 1)
+  if(y < -50){
+    y <- -50
+    color <- "red"
+  }
+  if(y > 50) {
+    y <- 50
+    color <- "blue"
+  }
+  if (i == MAX)break
+  segments (i,aux,i+1,y,col=color)
+  i <- i+1
+}
